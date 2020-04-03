@@ -1,16 +1,16 @@
 x_train <- read.table("./UCI HAR Dataset/train/X_train.txt")
 y_train <- read.table("./UCI HAR Dataset/train/Y_train.txt")
-subject_train <- read.table("./UCI HAR Dataset/train/subject_train.txt")
+sub_train <- read.table("./UCI HAR Dataset/train/subject_train.txt")
 
 x_test <- read.table("./UCI HAR Dataset/test/X_test.txt")
 y_test <- read.table("./UCI HAR Dataset/test/Y_test.txt")
-subject_test <- read.table("./UCI HAR Dataset/test/subject_test.txt")
+sub_test <- read.table("./UCI HAR Dataset/test/sub_test.txt")
 
 x_total <- rbind(x_train, x_test)
 y_total <- rbind(y_train, y_test)
-subject_total <- rbind(subject_train, subject_test)
+sub_total <- rbind(sub_train, sub_test)
 
-data <- cbind(subject_total, y_total, x_total)
+data <- cbind(sub_total, y_total, x_total)
 
 features <- read.table("./UCI HAR Dataset/features.txt")
 
@@ -21,10 +21,10 @@ activity_labels <- read.table("./UCI HAR Dataset/activity_labels.txt")
 
 data[, 2] <- activity_labels[data[, 2], 2]
 
-colnames(data) <- c('subject', 'activity', gsub('\\-|\\(|||)', '', as.character(reqfeatures)))
+colnames(data) <- c('sub', 'act', gsub('\\-|\\(|||)', '', as.character(reqfeatures)))
 data[ ,2] <- as.character(data[, 2])
 
-final.melt <- melt(data, id = c('subject', 'activity'))
+final.melt <- melt(data, id = c('sub', 'act'))
 
 final.cast <- dcast(final.melt, subject + activity ~ variable, mean)
 
