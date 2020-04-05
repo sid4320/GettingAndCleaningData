@@ -1,4 +1,4 @@
-# Code Book
+# Code book
 This code book describes all the variables in the `avgdata.txt` file after running the `RunAnalysis.R` script.
 
 # Variables 
