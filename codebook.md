@@ -1,5 +1,5 @@
 # CodeBook
-This code book describes all the variables in the `avgdata.txt` file after running the `run_analysis.R` script.
+This code book describes all the variables in the `avgdata.txt` file after running the `RunAnalysis.R` script.
 
 # Variables 
 ->  `subject`  - This is an integer datatype. With 30 different sets recorded
